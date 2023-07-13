@@ -21,7 +21,8 @@
 				"dbaeumer.vscode-eslint",
 				"oderwat.indent-rainbow",
 				"firsttris.vscode-jest-runner",
-				"humao.rest-client"
+				"humao.rest-client",
+				"EditorConfig.EditorConfig"
 			]
 		}
 	},
