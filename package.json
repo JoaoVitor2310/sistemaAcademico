@@ -11,5 +11,8 @@
   "license": "ISC",
   "devDependencies": {
     "git-commit-msg-linter": "^5.0.4"
+  },
+  "dependencies": {
+    "rimraf": "^5.0.1"
   }
 }
