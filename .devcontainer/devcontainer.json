@@ -22,7 +22,8 @@
 				"oderwat.indent-rainbow",
 				"firsttris.vscode-jest-runner",
 				"humao.rest-client",
-				"EditorConfig.EditorConfig"
+				"EditorConfig.EditorConfig",
+				"hediet.vscode-drawio"
 			]
 		}
 	},
