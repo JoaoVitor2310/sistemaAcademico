@@ -23,7 +23,9 @@
 				"firsttris.vscode-jest-runner",
 				"humao.rest-client",
 				"EditorConfig.EditorConfig",
-				"hediet.vscode-drawio"
+				"hediet.vscode-drawio",
+				"docsmsft.docs-markdown",
+				"docsmsft.docs-preview"
 			]
 		}
 	},
