@@ -1,4 +1,4 @@
-# Editar dados do Campus
+# Atualizar dados do Campus
 
 ## Dados
 * Nome do campus
@@ -18,7 +18,7 @@
 1. Obter dados do frontEnd.
 1. Consultar se o Instituto existe.
 1. Consultar se o Campus existe.
-1. Editar Campus com os dados fornecidos.
+1. Atualizar Campus com os dados fornecidos.
 1. Retornar os novos dados do Campus editado.
 
 ## Fluxo alternativo 1: Instituto não existe
