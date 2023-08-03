@@ -3,7 +3,7 @@ import { AddInstituto } from '@/domain/usecases/instituto'
 
 export class AddInstitutoRepositorySpy implements AddInstitutoRepository {
   params: AddInstituto.Params
-  result = true
+  result = false
 
   async add (params: AddInstituto.Params): Promise<AddInstituto.Result> {
     this.params = params

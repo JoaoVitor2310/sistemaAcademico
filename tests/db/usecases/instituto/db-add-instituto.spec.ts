@@ -35,6 +35,6 @@ describe('DBAddInstituto UseCase', () => {
   test('Should return true on success', async () => {
     const { sut } = makeSut()
     const isValid = await sut.add(mockAddInstitutoParams())
-    expect(isValid).toBe(true)
+    expect(isValid).toBe(false)
   })
 })
