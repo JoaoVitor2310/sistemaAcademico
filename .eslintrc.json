@@ -17,6 +17,7 @@
     "@typescript-eslint/comma-spacing": "off",
     "@typescript-eslint/restrict-template-expressions": "off",
     "@typescript-eslint/no-misused-promises": "off",
+    "no-multiple-empty-lines":["error",{ "max":1 }],
     "import/export": "off"
 
   }
