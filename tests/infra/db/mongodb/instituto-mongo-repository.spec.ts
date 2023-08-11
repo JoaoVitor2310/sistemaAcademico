@@ -19,7 +19,7 @@ describe('InstitutoMongoRepository', () => {
   })
 
   beforeEach(async () => {
-    institutoCollection = MongoHelper.getCollection('accounts')
+    institutoCollection = MongoHelper.getCollection('instituto')
     await institutoCollection.deleteMany({})
   })
   describe('add()', () => {
