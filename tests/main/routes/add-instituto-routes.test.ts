@@ -12,7 +12,7 @@ let app: Express
 
 describe('Instituto Routes', () => {
   beforeAll(async () => {
-    app = setupApp()
+    app = await setupApp()
     await MongoHelper.connect(process.env.MONGO_URL)
   })
 

@@ -7,7 +7,7 @@ let app: Express
 
 describe('Content Type Middleware', () => {
   beforeAll(async () => {
-    app = setupApp()
+    app = await setupApp()
   })
 
   test('Should return default content type as json', async () => {

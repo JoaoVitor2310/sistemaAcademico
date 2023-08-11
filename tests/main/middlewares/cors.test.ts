@@ -7,7 +7,7 @@ let app: Express
 
 describe('CORS Middleware', () => {
   beforeAll(async () => {
-    app = setupApp()
+    app = await setupApp()
   })
 
   test('Should enable CORS', async () => {
