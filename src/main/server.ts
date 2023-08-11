@@ -1,5 +1,3 @@
-import express from 'express'
-
-const app = express()
-
+import 'module-alias/register'
+import app from '@/main/config/app'
 app.listen(3000, () => { console.log('Server rinning at http://:localhost:3000') })
