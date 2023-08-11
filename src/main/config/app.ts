@@ -1,4 +1,7 @@
-import express from 'express'
+import express, { Express } from 'express'
 
-const app = express()
-export default app
+export const setupApp = (): Express => {
+  const app = express()
+
+  return app
+}
