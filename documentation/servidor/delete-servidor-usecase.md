@@ -1,4 +1,4 @@
-# Adicionar no Servidor
+# Remover no Servidor
 
 ## Dados
 * Servidor
