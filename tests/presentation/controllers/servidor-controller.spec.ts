@@ -1,31 +1,28 @@
-import { AddInstitutoController } from '@/presentation/controllers'
+import { AddServidorController } from '@/presentation/controllers'
 // import { badRequest, serverError, noContent } from '@/presentation/helpers'
-import { ValidationSpy, AddInstitutoSpy } from '@/tests/presentation/mocks'
+import { ValidationSpy, AddServidorSpy } from '@/tests/presentation/mocks'
 // import { throwError } from '@/tests/domain/mocks'
 import { faker } from '@faker-js/faker'
 
-const mockRequest = (): AddInstitutoController.Request => ({
-  razaoSocial: faker.commerce.department(),
-  site: faker.internet.url(),
-  nomeFantasia: faker.person.fullName(),
-  CNPJ: faker.company.buzzNoun(),
-  dataFundacao: (faker.date.birthdate).toString()
+const mockRequest = (): AddServidorController.Request => ({
+  nome: faker.person.fullName(),
+  matricula: faker.random.number({min: 100000000000, max: 999999999999})
 })
 
 type SutTypes = {
-  sut: AddInstitutoController
+  sut: AddServidorController
   validationSpy: ValidationSpy
-  addInstitutoSpy: AddInstitutoSpy
+  addServidorSpy: AddServidorSpy
 }
 
 const makeSut = (): SutTypes => {
   const validationSpy = new ValidationSpy()
-  const addInstitutoSpy = new AddInstitutoSpy()
-  const sut = new AddInstitutoController(validationSpy, addInstitutoSpy)
+  const addServidorSpy = new AddServidorSpy()
+  const sut = new AddServidorController(validationSpy, addServidorSpy)
   return {
     sut,
     validationSpy,
-    addInstitutoSpy
+    addServidorSpy
   }
 }
 
