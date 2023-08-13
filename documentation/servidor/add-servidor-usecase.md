@@ -1,0 +1,17 @@
+# Adicionar no Servidor
+
+## Dados
+* Nome
+* Matrícula
+
+# Fluxo primário
+1. Obter dados do frontEnd
+2. Consultar se existe um servidor com os dados recebidos acima
+5. Criar um servidor com os dados
+6. Retornar o dados gerados
+
+# Fluxo alternativo 1: Servidor já existe
+1. Retornar um erro de servidor existente
+
+# Fluxo alternativo 2: Matrícula errada
+1. Retornar erro de matrícula errada
