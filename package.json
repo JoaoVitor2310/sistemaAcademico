@@ -16,7 +16,6 @@
     "test:staged": "npm test -- --findRelatedTests",
     "test:ci": "npm test -- --coverage",
     "test:coveralls": "npm run test:ci && coveralls < coverage/lcov.info",
-
     "prepare": "husky install"
   },
   "keywords": [],
@@ -42,6 +41,8 @@
     "typescript": "^5.1.6"
   },
   "dependencies": {
+    "dotenv": "^16.3.1",
+    "dotenv-cli": "^7.2.1",
     "express": "^4.18.2",
     "module-alias": "^2.2.3",
     "mongodb": "^5.7.0",
