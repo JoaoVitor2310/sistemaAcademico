@@ -1,7 +1,13 @@
 import 'module-alias/register'
-import env from '@/main/config/env'
-import { setupApp } from './config/app'
+import { MongoHelper } from '@/infra/db'
 
-const app = setupApp()
-app.listen(env.port, () => { console.log(`Server running at http://localhost:${env.port}`) })
+import dotenv from 'dotenv'
+dotenv.config()
 
+MongoHelper.connect(process.env.MONGO_URL)
+  .then(async () => {
+    const { setupApp } = await import('./config/app')
+    const app = await setupApp()
+    app.listen(process.env.PORT, () => { console.log(`Server running at http://localhost:${process.env.PORT}`) })
+  })
+  .catch(console.error)
