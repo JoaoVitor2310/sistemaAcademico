@@ -1,8 +1,8 @@
 
 import { Router } from 'express'
+import { makeAddInstitutoController } from '../factories/controllers/add-instituto-controller-factory'
+import { adaptRoute } from '../adapters/express-route-adapter'
 
 export default (router: Router): void => {
-  router.post('/institutos', (req, res) => {
-    res.json({ ok: 'ok' })
-  })
+  router.post('/institutos', adaptRoute(makeAddInstitutoController()))
 }
