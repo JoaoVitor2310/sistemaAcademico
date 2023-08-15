@@ -4,3 +4,13 @@
 ###
 POST {{apiurl}}/institutos
 Content-Type: application/json
+
+{
+        "razaoSocial": "razaoSocial1",
+        "site": "site1",
+        "nomeFantasia": "nomeFantasia1",
+        "CNPJ": "CNP1J",
+        "dataFundacao": "dataFundacao1"
+
+ }
+
