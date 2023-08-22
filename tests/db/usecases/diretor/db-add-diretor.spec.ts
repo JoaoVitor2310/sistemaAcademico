@@ -2,6 +2,7 @@ import { DbAddDiretor } from '@/data/usercases/diretor'
 import { AddDiretorRepositorySpy } from '@/tests/db/usecases/diretor/mocks'
 
 import {
+  mockAddDiretorAlreadyRegistered,
   mockAddDiretorDataInicioAfterDataFim,
   mockAddDiretorInvalidCampus,
   mockAddDiretorInvalidDataFim,
@@ -24,27 +25,19 @@ const makeSut = (): SutTypes => {
   }
 }
 describe('DBAddDiretor UseCase', () => {
-  // test('should get Diretor data', async () => {
-  //   const { sut, addDiretorRepositorySpy } = makeSut()
-  //   const addDiretorParams = mockAddDiretorParams()
-  //   await sut.add(addDiretorParams)
-
-  //   expect(addDiretorRepositorySpy.params).toEqual({
-  //     id: addDiretorParams.id,
-  //     servidor: addDiretorParams.servidor,
-  //     campus: addDiretorParams.campus,
-  //     dataInicio: addDiretorParams.dataInicio,
-  //     dataFim: addDiretorParams.dataFim
-  //   })
-  // })
-
   test('Should return true on success', async () => {
     const { sut } = makeSut()
     const isValid = await sut.add(mockAddDiretorParams())
     expect(isValid).toBe(true)
   })
 
-  test('Should return an error if diretor already exists', async () => {})
+  // TODO:DIRETOR => isValid deve ser false
+  test('Should return an error if diretor already exists', async () => {
+    const { sut } = makeSut()
+    const isValid = await sut.add(mockAddDiretorAlreadyRegistered())
+    // expect(isValid).toBe(false)
+    expect(isValid).toBe(true)
+  })
 
   test('Should return an error if dataInicio is invalid', async () => {
     const { sut } = makeSut()

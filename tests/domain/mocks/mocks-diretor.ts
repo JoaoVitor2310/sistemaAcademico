@@ -48,3 +48,11 @@ export const mockAddDiretorInvalidServidor = (): AddDiretor.Params => ({
   dataInicio: (faker.date.birthdate({ mode: 'year', min: 2000, max: 2015 })).toString(),
   dataFim: (faker.date.birthdate({ mode: 'year', min: 2015, max: 2020 })).toString()
 })
+
+export const mockAddDiretorAlreadyRegistered = (): AddDiretor.Params => ({
+  id: faker.string.uuid(),
+  servidor: '03bf003a-a543-4783-add3-3c1a207127ba',
+  campus: faker.commerce.department(),
+  dataInicio: (faker.date.birthdate({ mode: 'year', min: 2000, max: 2015 })).toString(),
+  dataFim: (faker.date.birthdate({ mode: 'year', min: 2015, max: 2020 })).toString()
+})
