@@ -1,5 +1,5 @@
 
-import { Diretor } from '@/domain/model'
+import { Diretor } from '@/domain/model/diretor'
 
 export interface AddDiretor {
   add: (addIdiretor: AddDiretor.Params) => Promise<AddDiretor.Result>

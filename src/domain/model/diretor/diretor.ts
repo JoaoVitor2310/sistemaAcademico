@@ -1,5 +1,5 @@
 
-import { DiretorData } from '@/domain/model/diretor_data'
+import { DiretorData } from '@/domain/model/diretor/diretor_data'
 
 export class Diretor {
   data: DiretorData
