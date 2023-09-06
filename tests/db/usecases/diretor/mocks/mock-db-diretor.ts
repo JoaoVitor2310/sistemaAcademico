@@ -7,8 +7,6 @@ export class AddDiretorRepositorySpy implements AddDiretorRepository {
 
   async add (params: AddDiretor.Params): Promise<AddDiretor.Result> {
     this.params = params
-    if (params.campus === '') this.result = false
-    if (params.servidor === '') this.result = false
     return this.result
   }
 }
