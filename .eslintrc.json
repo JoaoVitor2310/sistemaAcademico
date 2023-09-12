@@ -6,9 +6,19 @@
   "ignorePatterns": ["**/*.js"],
   "rules": {
     "@typescript-eslint/consistent-type-definitions": "off",
+    "@typescript-eslint/consistent-type-imports": "off",
     "@typescript-eslint/no-namespace": "off",
     "@typescript-eslint/return-await": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
-    "@typescript-eslint/no-floating-promises": "off"
+    "@typescript-eslint/no-floating-promises": "off",
+    "@typescript-eslint/prefer-nullish-coalescing": "off",
+    "@typescript-eslint/strict-boolean-expressions": "off",
+    "@typescript-eslint/explicit-function-return-type":"off",
+    "@typescript-eslint/comma-spacing": "off",
+    "@typescript-eslint/restrict-template-expressions": "off",
+    "@typescript-eslint/no-misused-promises": "off",
+    "no-multiple-empty-lines":["error",{ "max":1 }],
+    "import/export": "off"
+
   }
 }
