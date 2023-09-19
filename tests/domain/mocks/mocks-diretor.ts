@@ -13,7 +13,7 @@ export const mockAddDiretorDataInicioAfterDataFim = (): AddDiretor.Params => ({
   id: faker.string.uuid(),
   servidor: faker.string.uuid(),
   campus: faker.commerce.department(),
-  dataInicio: (faker.date.birthdate({ mode: 'year', min: 2015, max: 2020 })).toString(),
+  dataInicio: (faker.date.birthdate({ mode: 'year', min: 2016, max: 2020 })).toString(),
   dataFim: (faker.date.birthdate({ mode: 'year', min: 2000, max: 2015 })).toString()
 })
 
