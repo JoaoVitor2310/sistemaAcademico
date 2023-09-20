@@ -1,6 +1,7 @@
 import { GetCampusRepository } from '@/data/db/campus'
 import { AddDiretorRepository } from '@/data/db/diretor'
 import { AddDiretor } from '@/domain/usecases/diretor'
+import { NotFoundError } from '@/presentation/errors/not-found-error'
 
 import crypto from 'crypto'
 
@@ -12,9 +13,9 @@ export class DbAddDiretor implements AddDiretor {
 
   async add (addDiretor: AddDiretor.Params): Promise<AddDiretor.Result> {
     let isValid = false
-    const campusFound = await this.getCampusRepository.get({ id: addDiretor.campus })
-    if (!campusFound) return false
-    if (!this.validatePeriod(addDiretor.dataInicio, addDiretor.dataFim)) return false
+    const campusFound = await this.getCampusRepository.get({ nome: addDiretor.campus })
+    if (!campusFound) throw new NotFoundError('Campus not found')
+    if (!this.validatePeriod(addDiretor.dataInicio, addDiretor.dataFim)) return isValid
     const uuid: string = addDiretor.id || crypto.randomUUID()
     isValid = await this.addDiretorRepository.add({ ...addDiretor, id: uuid })
     return isValid

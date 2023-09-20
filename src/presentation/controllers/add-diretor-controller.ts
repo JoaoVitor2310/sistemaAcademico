@@ -1,6 +1,7 @@
 import { AddDiretor } from '@/domain/usecases/diretor'
-import { badRequest, noContent, serverError } from '@/presentation/helpers'
+import { badRequest, noContent, notFound, serverError } from '@/presentation/helpers'
 import { Controller, Validation, HttpResponse } from '@/presentation/interfacestypes'
+import { NotFoundError } from '@/presentation/errors/'
 
 export class AddDiretorController implements Controller {
   constructor (
@@ -19,6 +20,7 @@ export class AddDiretorController implements Controller {
       })
       return noContent()
     } catch (error) {
+      if (error instanceof NotFoundError) return notFound(error.message)
       return serverError(error)
     }
   }

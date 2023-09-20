@@ -7,7 +7,7 @@ export class GetCampusRepositorySpy implements GetCampusRepository {
 
   async get (params: GetCampus.Params): Promise<GetCampus.Result> {
     this.params = params
-    if (params.id === '') return this.result
+    if (params.nome === '') return this.result
     return {
       id: 'string',
       nome: 'string',

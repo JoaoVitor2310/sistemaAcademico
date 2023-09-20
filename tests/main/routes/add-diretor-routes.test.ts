@@ -21,9 +21,14 @@ describe('Diretor Routes', () => {
   })
 
   test('Should return add a diretor on sucess', async () => {
+    await request(app).post('/api/campus').send({
+      nome: 'campus123',
+      endereco: 'endereco',
+      telefone: 'telefone'
+    })
     await request(app).post('/api/diretor').send({
       servidor: 'servidor',
-      campus: 'campus',
+      campus: 'campus123',
       dataInicio: 'dataInicio',
       dataFim: 'dataInicio'
     }).expect(204)
@@ -35,5 +40,19 @@ describe('Diretor Routes', () => {
       dataInicio: 'dataInicio',
       dataFim: 'dataInicio'
     }).expect(400)
+  })
+
+  test('should return 404 if campus not found',async () => {
+    await request(app).post('/api/campus').send({
+      nome: 'campus123',
+      endereco: 'endereco',
+      telefone: 'telefone'
+    })
+    await request(app).post('/api/diretor').send({
+      servidor: 'servidor',
+      campus: 'campus',
+      dataInicio: 'dataInicio',
+      dataFim: 'dataInicio'
+    }).expect(404)
   })
 })
