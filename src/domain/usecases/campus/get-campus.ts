@@ -5,6 +5,6 @@ export interface GetCampus {
 }
 
 export namespace GetCampus {
-  export type Params = Omit<Campus.Params, 'nome' | 'endereco' | 'telefone'>
-  export type Result = Campus.Params
+  export type Params = Omit<Campus.Params, 'id' | 'endereco' | 'telefone'>
+  export type Result = Campus.Params | boolean
 }
