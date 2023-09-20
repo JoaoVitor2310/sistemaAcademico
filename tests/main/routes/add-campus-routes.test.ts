@@ -3,9 +3,8 @@ import { setupApp } from '@/main/config/app'
 import { Express } from 'express'
 import request from 'supertest'
 
-let app: Express
-
 describe('Campus Routes', () => {
+  let app: Express
   beforeAll(async () => {
     app = await setupApp()
     await MongoHelper.connect(process.env.MONGO_URL)
@@ -26,5 +25,15 @@ describe('Campus Routes', () => {
       endereco: 'endereco',
       telefone: 'telefone'
     }).expect(204)
+  })
+
+  test('should return 400 if validation fails', async () => {
+    await request(app)
+      .post('/api/campus')
+      .send({
+        nome: 'nome',
+        endereco: 'endereco'
+      })
+      .expect(400)
   })
 })
