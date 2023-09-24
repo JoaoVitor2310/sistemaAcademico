@@ -1,4 +1,4 @@
-import { DbAddInstituto } from '@/data/usercases/instituto'
+import { DbAddInstituto } from '@/data/usecases/instituto'
 import { AddInstituto } from '@/domain/usecases/instituto'
 import { InstitutoMongoRepository } from '@/infra/db'
 

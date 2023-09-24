@@ -1,11 +1,10 @@
 import { AddInstitutoRepositorySpy } from '@/tests/db/usecases/instituto/mocks'
-import { DbAddInstituto } from '@/data/usercases/instituto'
+import { DbAddInstituto } from '@/data/usecases/instituto'
 import { mockAddInstitutoParams } from '@/tests/domain/mocks'
 
 type SutTypes = {
   sut: DbAddInstituto
   addInstitutoRepositorySpy: AddInstitutoRepositorySpy
-
 }
 const makeSut = (): SutTypes => {
   const addInstitutoRepositorySpy = new AddInstitutoRepositorySpy()
@@ -28,7 +27,6 @@ describe('DBAddInstituto UseCase', () => {
       nomeFantasia: addInstitutoParams.nomeFantasia,
       CNPJ: addInstitutoParams.CNPJ,
       dataFundacao: addInstitutoParams.dataFundacao
-
     })
   })
 
