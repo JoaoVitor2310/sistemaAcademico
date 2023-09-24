@@ -4,8 +4,7 @@ import { setupApp } from '@/main/config/app'
 import { Express } from 'express'
 import request from 'supertest'
 import { Collection } from 'mongodb'
-
-let institutoCollection: Collection
+let servidorCollection: Collection
 
 let app: Express
 
@@ -20,29 +19,24 @@ describe('Instituto Routes', () => {
   })
 
   beforeEach(async () => {
-    institutoCollection = MongoHelper.getCollection('institutos')
-    await institutoCollection.deleteMany({})
+    servidorCollection = MongoHelper.getCollection('servidores')
+    await servidorCollection.deleteMany({})
   })
   test('Should return 400 if Validation fails', async () => {
     await request(app)
-      .post('/api/institutos')
+      .get('/api/servidores')
       .send({
-        razaoSocial: 'razaoSocial',
-        site: 'site',
-        nomeFantasia: 'nomeFantasia'
+        nome: 'nome'
       })
       .expect(400)
   })
 
   test('Should return an instituto on sucess', async () => {
     await request(app)
-      .post('/api/institutos')
+      .get('/api/servidores')
       .send({
-        razaoSocial: 'razaoSocial',
-        site: 'site',
-        nomeFantasia: 'nomeFantasia',
-        CNPJ: 'CNPJ',
-        dataFundacao: 'dataFundacao'
+        nome: 'nome',
+        matricula: '1'
       })
       .expect(204)
   })

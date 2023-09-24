@@ -1,5 +1,6 @@
 import { HttpResponse } from '@/presentation/interfacestypes'
 import { ServerError, UnauthorizedError } from '@/presentation/errors'
+import { NotFoundError } from '../errors/not-found-error'
 
 export const badRequest = (error: Error): HttpResponse => ({
   statusCode: 400,
@@ -29,4 +30,9 @@ export const ok = (data: any): HttpResponse => ({
 export const noContent = (): HttpResponse => ({
   statusCode: 204,
   body: null
+})
+
+export const notFound = (): HttpResponse => ({
+  statusCode: 404,
+  body: new NotFoundError()
 })

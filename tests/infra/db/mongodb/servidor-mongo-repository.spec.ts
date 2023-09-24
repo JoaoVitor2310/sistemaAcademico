@@ -1,5 +1,5 @@
 import { ServidorMongoRepository, MongoHelper } from '@/infra/db'
-import { mockAddServidorParams } from '@/tests/domain/mocks'
+import { mockServidorParams } from '@/tests/domain/mocks'
 
 import { Collection } from 'mongodb'
 
@@ -10,6 +10,8 @@ const makeSut = (): ServidorMongoRepository => {
 }
 
 describe('ServidorMongoRepository', () => {
+  const mockServidor = mockServidorParams()
+
   beforeAll(async () => {
     await MongoHelper.connect(process.env.MONGO_URL)
   })
@@ -23,12 +25,21 @@ describe('ServidorMongoRepository', () => {
     await ServidorCollection.deleteMany({})
   })
   describe('add()', () => {
-    test('Should return an account on success', async () => {
+    test('Should return a servidor on success', async () => {
       const sut = makeSut()
-      const addServidorParams = mockAddServidorParams()
-      const isValid = await sut.add(addServidorParams)
+      const isValid = await sut.add(mockServidor)
       expect(isValid).toBe(true)
     })
   })
+  describe('get()', () => {
+    test('Should return a servidor on success', async () => {
+      const sut = makeSut()
+      const servidor = await sut.get({ id: mockServidor.id })
+      expect(servidor).toEqual({
+        id: mockServidor.id,
+        nome: mockServidor.nome,
+        matricula: mockServidor.matricula
+      })
+    })
+  })
 })
-
