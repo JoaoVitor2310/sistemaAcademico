@@ -29,7 +29,7 @@ const makeSut = (): SutTypes => {
   }
 }
 
-describe('Insttuto Controller', () => {
+describe('Instituto Controller', () => {
   test('Should call Validation with correct values', async () => {
     const { sut, validationSpy } = makeSut()
     const request = mockRequest()

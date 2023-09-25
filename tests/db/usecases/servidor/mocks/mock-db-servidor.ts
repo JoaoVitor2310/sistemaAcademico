@@ -19,4 +19,12 @@ implements AddServidorRepository, GetServidorRepository {
     this.params = params
     return mockServidorParams()
   }
+
+  async findByNome(nome: string): Promise<boolean> {
+    if (nome === 'NomeExistente') {
+      return true; // Simula um servidor com o mesmo nome existente
+    } else {
+      return false; // Simula um servidor com o mesmo nome não existente
+    }
+  }
 }

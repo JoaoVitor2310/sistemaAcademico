@@ -6,6 +6,7 @@
 
 # Fluxo primário
 1. Obter dados do frontEnd
+2. Consultar se existe um servidor com os dados recebidos acima
 3. Retornar os dados Servidor
 
 # Fluxo alternativo 1: Servidor não existe

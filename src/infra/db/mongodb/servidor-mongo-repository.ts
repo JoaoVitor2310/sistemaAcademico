@@ -25,4 +25,10 @@ implements AddServidorRepository, GetServidorRepository {
     }
     return response
   }
+
+  async findByNome(nome: string): Promise<boolean> {
+    const ServidorCollection = MongoHelper.getCollection('servidores');
+    const result = await ServidorCollection.findOne({ nome });
+    return !!result; // Retorna true se encontrar um servidor com o mesmo nome
+  }
 }

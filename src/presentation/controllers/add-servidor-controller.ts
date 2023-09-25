@@ -3,10 +3,11 @@ import {
   HttpResponse,
   Validation
 } from '@/presentation/interfacestypes'
-import { badRequest, serverError, noContent } from '@/presentation/helpers'
+import { badRequest, serverError, noContent, existingServidor, invalidMatricula } from '@/presentation/helpers'
 import { AddServidor } from '@/domain/usecases/servidor'
 // Importando Biblioteca
 import crypto from 'crypto'
+import { ExistingServidorError, InvalidMatriculaError } from '../errors'
 
 export class AddServidorController implements Controller {
   constructor (
@@ -27,6 +28,8 @@ export class AddServidorController implements Controller {
       })
       return noContent()
     } catch (error) {
+      if (error instanceof ExistingServidorError) return existingServidor(error)
+      if (error instanceof InvalidMatriculaError) return invalidMatricula(error)
       return serverError(error)
     }
   }
