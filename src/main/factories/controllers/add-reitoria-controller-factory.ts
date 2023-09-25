@@ -1,4 +1,4 @@
-import { AddReitoriaController } from '@/preimportSsentation/controllers'
+import { AddReitoriaController } from '@/presentation/controllers'
 import { makeAddReitoriaValidation } from './add-reitoria-validation-factory'
 import { makeDbAddReitoria } from '../usecases/add-reitoria-factory'
 
