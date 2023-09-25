@@ -25,19 +25,20 @@ describe('Instituto Routes', () => {
   })
   test('Should return 400 if Validation fails', async () => {
     await request(app)
-      .post('/api/servidores')
+      .post('/api/reitorias')
       .send({
         nome: 'nome'
       })
       .expect(400)
   })
 
-  test('Should return an servidor on sucess', async () => {
+  test('Should return a reitoria on sucess', async () => {
     await request(app)
-      .post('/api/servidores')
+      .post('/api/reitorias')
       .send({
         nome: 'nome',
-        matricula: '1'
+        endereco: '1',
+        telefone: '2'
       })
       .expect(204)
   })

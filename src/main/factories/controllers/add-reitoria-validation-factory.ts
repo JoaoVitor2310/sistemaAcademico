@@ -2,9 +2,9 @@ import { Validation } from '@/presentation/interfacestypes'
 import { RequiredFieldValidation } from '@/validation/validators/required-field-validation'
 import { ValidationComposite } from '@/validation/validators/validation-composite'
 
-export const makeAddServidorValidation = (): ValidationComposite => {
+export const makeAddReitoriaValidation = (): ValidationComposite => {
   const validations: Validation[] = []
-  for (const field of ['nome', 'matricula']) {
+  for (const field of ['nome', 'endereco', 'telefone']) {
     validations.push(new RequiredFieldValidation(field))
   }
   return new ValidationComposite(validations)

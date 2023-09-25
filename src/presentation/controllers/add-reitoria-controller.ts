@@ -4,24 +4,24 @@ import {
   Validation
 } from '@/presentation/interfacestypes'
 import { badRequest, serverError, noContent } from '@/presentation/helpers'
-import { AddServidor } from '@/domain/usecases/servidor'
+import { AddReitoria } from '@/domain/usecases/reitoria'
 // Importando Biblioteca
 import crypto from 'crypto'
 
-export class AddServidorController implements Controller {
+export class AddReitoriaController implements Controller {
   constructor (
     private readonly validation: Validation,
-    private readonly addServidor: AddServidor
+    private readonly addReitoria: AddReitoria
   ) {}
 
-  async handle (request: AddServidorController.Request): Promise<HttpResponse> {
+  async handle (request: AddReitoriaController.Request): Promise<HttpResponse> {
     try {
       const error = this.validation.validate(request)
       if (error) {
         return badRequest(error)
       }
       const uuid: string = crypto.randomUUID()
-      await this.addServidor.add({
+      await this.addReitoria.add({
         ...request,
         id: uuid
       })
@@ -32,6 +32,6 @@ export class AddServidorController implements Controller {
   }
 }
 
-export namespace AddServidorController {
-  export type Request = Omit<AddServidor.Params, 'id'>
+export namespace AddReitoriaController {
+  export type Request = Omit<AddReitoria.Params, 'id'>
 }

@@ -1,4 +1,4 @@
-import { makeAddServidorValidation } from '@/main/factories'
+import { makeAddReitoriaValidation } from '@/main/factories'
 import {
   ValidationComposite,
   RequiredFieldValidation
@@ -7,9 +7,9 @@ import { Validation } from '@/presentation/interfacestypes'
 
 jest.mock('@/validation/validators/validation-composite')
 
-describe('Add Servidor Validation Factory', () => {
+describe('Add Reitoria Validation Factory', () => {
   test('Should call ValidationComposite with all validations', () => {
-    makeAddServidorValidation()
+    makeAddReitoriaValidation()
     const validations: Validation[] = []
     for (const field of ['nome', 'matricula']) {
       validations.push(new RequiredFieldValidation(field))

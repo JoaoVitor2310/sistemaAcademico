@@ -1,4 +1,4 @@
 export * from './instituto'
 export * from './instituto_data'
-export * from './servidor'
-export * from './servidor_data'
+export * from './reitoria'
+export * from './reitoria_data'
