@@ -36,7 +36,7 @@ describe('Instituto Routes', () => {
       .get('/api/reitorias')
       .send({
         nome: 'nome',
-        endereco: 'iff',
+        endereco: '2',
         telefone: '1'
       })
       .expect(204)

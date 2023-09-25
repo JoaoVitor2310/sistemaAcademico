@@ -34,7 +34,7 @@ describe('ReitoriaMongoRepository', () => {
   describe('get()', () => {
     test('Should return a reitoria on success', async () => {
       const sut = makeSut()
-      const reitoria = await sut.get({ id: mockReitoria.id, endereco: mockReitoria.endereco,telefone: mockReitoria.telefone})
+      const reitoria = await sut.get({ id: mockReitoria.id })
       expect(reitoria).toEqual({
         id: mockReitoria.id,
         nome: mockReitoria.nome,

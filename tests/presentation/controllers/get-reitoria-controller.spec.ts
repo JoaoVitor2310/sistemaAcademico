@@ -5,9 +5,7 @@ import { ValidationSpy, ReitoriaSpy } from '@/tests/presentation/mocks'
 import { faker } from '@faker-js/faker'
 
 const mockRequest = (): GetReitoriaController.Request => ({
-  id: faker.string.uuid(),
-  endereco: faker.location.country(),
-  telefone: String(faker.number.int({ min: 100000000000, max: 999999999999 }))
+  id: faker.string.uuid()
 })
 
 type SutTypes = {
