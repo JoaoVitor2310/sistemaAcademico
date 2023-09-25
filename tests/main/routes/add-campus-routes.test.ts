@@ -19,7 +19,7 @@ describe('Campus Routes', () => {
     await campusCollection.deleteMany({})
   })
 
-  test('Should return add a campus on sucess', async () => {
+  test('Should add a campus on sucess', async () => {
     await request(app).post('/api/campus').send({
       nome: 'nome',
       endereco: 'endereco',

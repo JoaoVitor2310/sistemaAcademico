@@ -20,7 +20,7 @@ describe('Diretor Routes', () => {
     await diretorCollection.deleteMany({})
   })
 
-  test('Should return add a diretor on sucess', async () => {
+  test('Should add a diretor on sucess', async () => {
     await request(app).post('/api/campus').send({
       nome: 'campus123',
       endereco: 'endereco',
