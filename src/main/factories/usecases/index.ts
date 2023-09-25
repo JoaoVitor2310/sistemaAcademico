@@ -1,2 +1,2 @@
 export * from './add-instituto-factory'
-export * from './get-servidor-factory'
+export * from './get-reitoria-factory'

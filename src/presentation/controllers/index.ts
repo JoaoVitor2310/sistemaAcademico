@@ -1,3 +1,3 @@
 export * from './add-instituto-controller'
-export * from './add-servidor-controller'
-export * from './get-servidor-controller'
+export * from './add-reitoria-controller'
+export * from './get-reitoria-controller'

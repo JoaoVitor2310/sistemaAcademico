@@ -1,2 +1,2 @@
 export * from './mocks-instituto'
-export * from './mocks-servidor'
+export * from './mocks-reitoria'

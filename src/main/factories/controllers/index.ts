@@ -1,4 +1,4 @@
 export * from './add-instituto-controller-factory'
 export * from './add-instituto-validation-factory'
-export * from './get-servidor-controller-factory'
-export * from './get-servidor-validation-factory'
+export * from './get-reitoria-controller-factory'
+export * from './get-reitoria-validation-factory'
