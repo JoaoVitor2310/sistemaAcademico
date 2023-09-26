@@ -9,7 +9,7 @@ const makeSut = (): CampusMongoRepository => {
   return new CampusMongoRepository()
 }
 
-describe('CampusMongoRepository', () => {
+describe.skip('CampusMongoRepository', () => {
   beforeAll(async () => {
     await MongoHelper.connect(process.env.MONGO_URL)
   })

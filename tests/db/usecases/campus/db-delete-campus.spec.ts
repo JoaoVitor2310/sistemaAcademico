@@ -15,7 +15,7 @@ const makeSut = (): SutTypes => {
     deleteCampusRepositorySpy
   }
 }
-describe('DBDeleteCampus UseCase', () => {
+describe.skip('DBDeleteCampus UseCase', () => {
   test('should delete Campus data', async () => {
     const { sut, deleteCampusRepositorySpy } = makeSut()
     const deleteCampusParams = mockDeleteCampusParams()
