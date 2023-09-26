@@ -2,6 +2,7 @@ import { AddDiretor } from '@/domain/usecases/diretor'
 import { badRequest, noContent, notFound, serverError } from '@/presentation/helpers'
 import { Controller, Validation, HttpResponse } from '@/presentation/interfacestypes'
 import { NotFoundError } from '@/presentation/errors/'
+import crypto from 'crypto'
 
 export class AddDiretorController implements Controller {
   constructor (
@@ -14,10 +15,11 @@ export class AddDiretorController implements Controller {
       const error = this.validation.validate(request)
       if (error) return badRequest(error)
       const uuid = crypto.randomUUID()
-      await this.addDiretor.add({
+      const output = await this.addDiretor.add({
         ...request,
         id: uuid
       })
+      if (!output) return badRequest(new Error('Invalid params values'))
       return noContent()
     } catch (error) {
       if (error instanceof NotFoundError) return notFound(error.message)

@@ -21,8 +21,8 @@
 1. Atualizar Campus com os dados fornecidos.
 1. Retornar os novos dados do Campus editado.
 
-## Fluxo alternativo 1: Instituto não existe
-1. Retornar erro de Instituto não existente
+<!-- ## Fluxo alternativo 1: Instituto não existe
+1. Retornar erro de Instituto não existente -->
 
 ## Fluxo alternativo 2: Campus não existe
 1. Retornar um erro de Campus inexistente
