@@ -16,7 +16,6 @@ export class EditCampusController implements Controller {
       const campus = await this.editCampus.edit(request)
       return ok(campus)
     } catch (error) {
-      console.log(error.message)
       if (error instanceof NotFoundError) return notFound(error.message)
       return serverError(error)
     }
