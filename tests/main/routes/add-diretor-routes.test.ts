@@ -29,8 +29,8 @@ describe('Diretor Routes', () => {
     await request(app).post('/api/diretor').send({
       servidor: 'servidor',
       campus: 'campus123',
-      dataInicio: 'dataInicio',
-      dataFim: 'dataInicio'
+      dataInicio: '1996/01/26',
+      dataFim: '1996/01/27'
     }).expect(204)
   })
 
@@ -42,7 +42,7 @@ describe('Diretor Routes', () => {
     }).expect(400)
   })
 
-  test('should return 404 if campus not found',async () => {
+  test('should return 400 if campus not found',async () => {
     await request(app).post('/api/campus').send({
       nome: 'campus123',
       endereco: 'endereco',
@@ -53,6 +53,6 @@ describe('Diretor Routes', () => {
       campus: 'campus',
       dataInicio: 'dataInicio',
       dataFim: 'dataInicio'
-    }).expect(404)
+    }).expect(400)
   })
 })

@@ -36,4 +36,19 @@ describe('Campus Routes', () => {
       })
       .expect(400)
   })
+
+  test('should return 400 if campus already exists', async () => {
+    await request(app).post('/api/campus').send({
+      nome: 'samename',
+      endereco: 'endereco',
+      telefone: 'telefone'
+    })
+
+    await request(app).post('/api/campus').send({
+      nome: 'samename',
+      endereco: 'endereco',
+      telefone: 'telefone'
+    })
+      .expect(400)
+  })
 })

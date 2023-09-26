@@ -14,7 +14,8 @@ export class AddCampusController implements Controller {
       const error = this.validation.validate(request)
       if (error) return badRequest(error)
       const uuid = crypto.randomUUID()
-      await this.addCampus.add({ ...request, id: uuid })
+      const output = await this.addCampus.add({ ...request, id: uuid })
+      if (!output) return badRequest(new Error('Invalid params values'))
       return noContent()
     } catch (error) {
       console.log(error)
