@@ -51,7 +51,7 @@ describe('Campus Routes', () => {
     }).expect(400)
   })
 
-  test('Should return 404 if campus not found', async () => {
+  test('Should return 400 if campus not found', async () => {
     await request(app).post('/api/campus').send({
       nome: 'campus123',
       endereco: 'endereco',
@@ -60,6 +60,6 @@ describe('Campus Routes', () => {
     const resp2 = await request(app).get('/api/campus').send({
       nome: 'campus12'
     })
-    expect(resp2.status).toBe(404)
+    expect(resp2.status).toBe(400)
   })
 })

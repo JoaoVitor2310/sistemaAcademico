@@ -1,7 +1,6 @@
 import { GetCampus } from '@/domain/usecases/campus'
 import { Controller, HttpResponse, Validation } from '@/presentation/interfacestypes'
-import { badRequest, notFound, ok, serverError } from '@/presentation/helpers'
-import { NotFoundError } from '@/presentation/errors/'
+import { badRequest, ok, serverError } from '@/presentation/helpers'
 
 export class GetCampusController implements Controller {
   constructor (
@@ -13,10 +12,10 @@ export class GetCampusController implements Controller {
     try {
       const error = this.validation.validate(request)
       if (error) return badRequest(error)
-      const campus = await this.getCampus.get({ nome: request.nome })
-      return ok(campus)
+      const output = await this.getCampus.get({ nome: request.nome })
+      if (!output) return badRequest(new Error('Invalid params values'))
+      return ok(output)
     } catch (error) {
-      if (error instanceof NotFoundError) return notFound(error.message)
       return serverError(error)
     }
   }
