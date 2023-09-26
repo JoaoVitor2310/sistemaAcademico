@@ -4,4 +4,5 @@ export * from './add-campus-controller-factory'
 export * from './add-campus-validation-factory'
 export * from './get-campus-controller-factory'
 export * from './get-campus-validation-factory'
-
+export * from './edit-campus-controller-factory'
+export * from './edit-campus-validation-factory'
