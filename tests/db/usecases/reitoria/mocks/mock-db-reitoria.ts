@@ -19,4 +19,12 @@ implements AddReitoriaRepository, GetReitoriaRepository {
     this.params = params
     return mockReitoriaParams()
   }
+
+  async findByNome(nome: string): Promise<boolean> {
+    if (nome === 'NomeExistente') {
+      return true
+    } else {
+      return false
+    }
+  }
 }

@@ -26,4 +26,10 @@ implements AddReitoriaRepository, GetReitoriaRepository {
     }
     return response
   }
+
+  async findByNome(nome: string): Promise<boolean> {
+    const reitoriaCollection = MongoHelper.getCollection('reitorias');
+    const result = await reitoriaCollection.findOne({ nome });
+    return !!result
+  }
 }

@@ -29,5 +29,5 @@ export class GetReitoriaController implements Controller {
 }
 
 export namespace GetReitoriaController {
-  export type Request = Omit<GetReitoria.Params, 'name' | 'matricula'>
+  export type Request = Omit<GetReitoria.Params, 'name' | 'endereco' | 'telefone'>
 }

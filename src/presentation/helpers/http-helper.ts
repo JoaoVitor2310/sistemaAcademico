@@ -1,5 +1,5 @@
 import { HttpResponse } from '@/presentation/interfacestypes'
-import { ServerError, UnauthorizedError } from '@/presentation/errors'
+import { ExistingReitoriaError, InvalidTelefoneError, ServerError, UnauthorizedError } from '@/presentation/errors'
 import { NotFoundError } from '../errors/not-found-error'
 
 export const badRequest = (error: Error): HttpResponse => ({
@@ -21,6 +21,17 @@ export const serverError = (error: Error): HttpResponse => ({
   statusCode: 500,
   body: new ServerError(error.stack)
 })
+
+export const existingReitoria = (error: Error): HttpResponse => ({
+  statusCode: 604,
+  body: new ExistingReitoriaError()
+})
+
+export const invalidTelefone = (error: Error): HttpResponse => ({
+  statusCode: 704,
+  body: new InvalidTelefoneError()
+})
+
 
 export const ok = (data: any): HttpResponse => ({
   statusCode: 200,
