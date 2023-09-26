@@ -26,40 +26,33 @@ describe('Campus Routes', () => {
       endereco: 'endereco',
       telefone: 'telefone'
     })
-    const resp2 = await request(app).get('/api/campus').send({
-      nome: 'campus123'
-    })
-    expect(resp2.body.id).toBeDefined()
-    expect(resp2.body).toEqual({
-      id: resp2.body.id,
+    const resp2 = await request(app).put('/api/campus').send({
       nome: 'campus123',
-      endereco: 'endereco',
-      telefone: 'telefone'
+      endereco: 'test123'
     })
     expect(resp2.status).toBe(200)
   })
 
   test('Should return 400 if validation fails', async () => {
     await request(app).post('/api/campus').send({
-      nome: 'campus123',
       endereco: 'endereco',
       telefone: 'telefone'
     })
 
-    await request(app).get('/api/campus').send({
+    await request(app).put('/api/campus').send({
       endereco: ''
     }).expect(400)
   })
 
-  test('Should return 400 if campus not found', async () => {
+  test('Should return 404 if campus not found', async () => {
     await request(app).post('/api/campus').send({
       nome: 'campus123',
       endereco: 'endereco',
       telefone: 'telefone'
     })
-    const resp2 = await request(app).get('/api/campus').send({
-      nome: 'campus12'
+    const resp2 = await request(app).put('/api/campus').send({
+      nome: 'campus1245678'
     })
-    expect(resp2.status).toBe(400)
+    expect(resp2.status).toBe(404)
   })
 })

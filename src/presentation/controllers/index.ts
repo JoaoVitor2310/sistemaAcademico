@@ -4,4 +4,5 @@ export * from './add-campus-controller'
 export * from './get-campus-controller'
 export * from './delete-campus-controller'
 export * from './delete-diretor-controller'
+export * from './edit-campus-controller'
 

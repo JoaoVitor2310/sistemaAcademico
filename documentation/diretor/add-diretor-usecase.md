@@ -12,7 +12,7 @@
 # Fluxo primário
 1. Obter dados do frontEnd
 2. Consultar se existe um diretor com os dados recebidos acima
-3. Verificar existência do servidor
+<!-- 3. Verificar existência do servidor -->
 4. Verificar existência do campus
 5. Criar um diretor com os dados
 6. Retornar o dados gerados
@@ -32,5 +32,5 @@
 # Fluxo alternativo 5: Campus não existente
 1. Retornar erro de campus não existente
 
-# Fluxo alternativo 6: Servidor não existente
-1. Retornar erro de servidor não existente
+<!-- # Fluxo alternativo 6: Servidor não existente
+1. Retornar erro de servidor não existente -->

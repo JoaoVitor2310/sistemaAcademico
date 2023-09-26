@@ -4,5 +4,5 @@ import { CampusMongoRepository } from '@/infra/db'
 
 export const makeDbAddCampus = (): AddCampus => {
   const campusMongoRepository = new CampusMongoRepository()
-  return new DbAddCampus(campusMongoRepository)
+  return new DbAddCampus(campusMongoRepository,campusMongoRepository)
 }

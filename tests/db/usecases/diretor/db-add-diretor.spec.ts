@@ -6,11 +6,9 @@ import {
   mockAddDiretorInvalidCampus,
   mockAddDiretorInvalidDataFim,
   mockAddDiretorInvalidDataInicio,
-  // mockAddDiretorInvalidServidor,
   mockAddDiretorParams
 } from '@/tests/domain/mocks'
 import { GetCampusRepositorySpy } from './mocks/mock-db-campus'
-import { NotFoundError } from '@/presentation/errors'
 
 const makeSut = () => {
   const addDiretorRepositorySpy = new AddDiretorRepositorySpy()
@@ -48,13 +46,7 @@ describe('DBAddDiretor UseCase', () => {
 
   test('Should throw an error if campus not found', async () => {
     const { sut } = makeSut()
-    const action = async () => await sut.add(mockAddDiretorInvalidCampus())
-    await expect(action).rejects.toThrowError(NotFoundError)
+    const isValid = await sut.add(mockAddDiretorInvalidCampus())
+    expect(isValid).toBe(false)
   })
-
-  // test('Should return an error if servidor not found', async () => {
-  //   const { sut } = makeSut()
-  //   const isValid = await sut.add(mockAddDiretorInvalidServidor())
-  //   expect(isValid).toBe(false)
-  // })
 })
