@@ -44,7 +44,6 @@ export class CampusMongoRepository implements AddCampusRepository, GetCampusRepo
     const result = await campusCollection.findOne(querry)
     if (result) {
       const result = await campusCollection.updateOne(querry, newValues)
-      console.log(result)
       return true
     } else {
       return false
