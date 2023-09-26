@@ -29,7 +29,7 @@ const makeSut = (): SutTypes => {
   }
 }
 
-describe.skip('Insttuto Controller', () => {
+describe('Insttuto Controller', () => {
   test('Should call Validation with correct values', async () => {
     const { sut, validationSpy } = makeSut()
     const request = mockRequest()
