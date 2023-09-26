@@ -1,31 +1,30 @@
-import { AddInstitutoController } from '@/presentation/controllers'
+import { AddNivelDeEnsinoController } from '@/presentation/controllers'
 import { badRequest } from '@/presentation/helpers'
-import { ValidationSpy, AddInstitutoSpy } from '@/tests/presentation/mocks'
+/*
+, noContent
+*/
+import { ValidationSpy, AddNivelDeEnsinoSpy } from '@/tests/presentation/mocks'
 // import { throwError } from '@/tests/domain/mocks'
 import { faker } from '@faker-js/faker'
 
-const mockRequest = (): AddInstitutoController.Request => ({
-  razaoSocial: faker.commerce.department(),
-  site: faker.internet.url(),
-  nomeFantasia: faker.person.fullName(),
-  CNPJ: faker.company.buzzNoun(),
-  dataFundacao: (faker.date.birthdate).toString()
+const mockRequest = (): AddNivelDeEnsinoController.Request => ({
+  nome: faker.person.fullName()
 })
 
 type SutTypes = {
-  sut: AddInstitutoController
+  sut: AddNivelDeEnsinoController
   validationSpy: ValidationSpy
-  addInstitutoSpy: AddInstitutoSpy
+  addNivelDeEnsinoSpy: AddNivelDeEnsinoSpy
 }
 
 const makeSut = (): SutTypes => {
   const validationSpy = new ValidationSpy()
-  const addInstitutoSpy = new AddInstitutoSpy()
-  const sut = new AddInstitutoController(validationSpy, addInstitutoSpy)
+  const addNivelDeEnsinoSpy = new AddNivelDeEnsinoSpy()
+  const sut = new AddNivelDeEnsinoController(validationSpy, addNivelDeEnsinoSpy)
   return {
     sut,
     validationSpy,
-    addInstitutoSpy
+    addNivelDeEnsinoSpy
   }
 }
 

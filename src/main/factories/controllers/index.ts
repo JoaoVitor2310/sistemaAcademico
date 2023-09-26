@@ -1,3 +1,8 @@
 export * from './add-instituto-controller-factory'
 export * from './add-instituto-validation-factory'
-
+export * from './nivel-de-ensino/add-nivel-de-ensino-controller-factory'
+export * from './nivel-de-ensino/add-nivel-de-ensino-validation-factory'
+export * from './nivel-de-ensino/delete-nivel-de-ensino-validation-factory'
+export * from './nivel-de-ensino/delete-nivel-de-ensino-controller-factory'
+export * from './nivel-de-ensino/get-nivel-de-ensino-validation-factory'
+export * from './nivel-de-ensino/get-nivel-de-ensino-controller-factory'

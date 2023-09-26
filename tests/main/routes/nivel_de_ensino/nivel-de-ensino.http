@@ -1,0 +1,11 @@
+### Variables
+@apiurl = http://localhost:3000/api
+###
+
+POST {{apiurl}}/nivelDeEnsino
+Content-Type: application/json
+
+{
+        "nome": "nome"
+}
+
