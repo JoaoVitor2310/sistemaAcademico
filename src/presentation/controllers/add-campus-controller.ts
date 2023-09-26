@@ -1,6 +1,7 @@
 import { AddCampus } from '@/domain/usecases/campus'
 import { Controller, HttpResponse, Validation } from '@/presentation/interfacestypes'
 import { badRequest, noContent, serverError } from '@/presentation/helpers'
+import crypto from 'crypto'
 
 export class AddCampusController implements Controller {
   constructor (
@@ -16,6 +17,7 @@ export class AddCampusController implements Controller {
       await this.addCampus.add({ ...request, id: uuid })
       return noContent()
     } catch (error) {
+      console.log(error)
       return serverError(error)
     }
   }

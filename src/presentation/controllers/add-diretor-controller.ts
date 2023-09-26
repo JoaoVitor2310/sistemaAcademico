@@ -2,6 +2,7 @@ import { AddDiretor } from '@/domain/usecases/diretor'
 import { badRequest, noContent, notFound, serverError } from '@/presentation/helpers'
 import { Controller, Validation, HttpResponse } from '@/presentation/interfacestypes'
 import { NotFoundError } from '@/presentation/errors/'
+import crypto from 'crypto'
 
 export class AddDiretorController implements Controller {
   constructor (

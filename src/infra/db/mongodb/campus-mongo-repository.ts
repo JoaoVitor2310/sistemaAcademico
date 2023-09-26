@@ -2,8 +2,9 @@ import { AddCampus, GetCampus, DeleteCampus } from '@/domain/usecases/campus'
 import { MongoHelper } from '@/infra/db'
 import { AddCampusRepository } from '@/data/db/campus/add-campus-repository'
 import { GetCampusRepository } from '@/data/db/campus/get-campus-repository'
+import { DeleteCampusRepository } from '@/data/db/campus'
 
-export class CampusMongoRepository implements AddCampusRepository, GetCampusRepository {
+export class CampusMongoRepository implements AddCampusRepository, GetCampusRepository, DeleteCampusRepository {
   async add (data: AddCampus.Params): Promise<AddCampus.Result> {
     const campusCollection = MongoHelper.getCollection('campus')
     const result = await campusCollection.insertOne(data)
