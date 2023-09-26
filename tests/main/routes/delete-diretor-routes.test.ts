@@ -21,10 +21,16 @@ describe('Diretor Routes', () => {
   })
 
   test('Should delete a diretor on sucess', async () => {
-    await request(app).post('/api/diretor').send({
-      nome: 'diretor123',
+    await request(app).post('/api/campus').send({
+      nome: 'campus123',
       endereco: 'endereco',
       telefone: 'telefone'
+    })
+    await request(app).post('/api/diretor').send({
+      servidor: 'servidor',
+      campus: 'campus123',
+      dataInicio: 'dataInicio',
+      dataFim: 'dataInicio'
     })
     const resp1 = await request(app).get('/api/diretor').send({
       nome: 'diretor123'
@@ -35,21 +41,23 @@ describe('Diretor Routes', () => {
     expect(resp2.body.id).toBeDefined()
     expect(resp2.body).toEqual({
       id: resp2.body.id,
-      nome: 'diretor123',
-      endereco: 'endereco',
-      telefone: 'telefone'
+      servidor: 'servidor',
+      campus: 'campus123',
+      dataInicio: 'dataInicio',
+      dataFim: 'dataInicio'
     })
     expect(resp2.status).toBe(200)
   })
 
   test('Should return 400 if validation fails', async () => {
     await request(app).post('/api/diretor').send({
-      nome: 'diretor123',
-      endereco: 'endereco',
-      telefone: 'telefone'
+      servidor: 'servidor',
+      campus: 'campus123',
+      dataInicio: 'dataInicio',
+      dataFim: 'dataInicio'
     })
     await request(app).get('/api/diretor').send({
-      nome: 'diretor123'
+      servidor: 'servidor'
     })
 
     await request(app).delete('/api/diretor').send({
@@ -59,12 +67,13 @@ describe('Diretor Routes', () => {
 
   test('Should return 404 if diretor not found', async () => {
     await request(app).post('/api/diretor').send({
-      nome: 'diretor123',
-      endereco: 'endereco',
-      telefone: 'telefone'
+      servidor: 'servidor',
+      campus: 'campus123',
+      dataInicio: 'dataInicio',
+      dataFim: 'dataInicio'
     })
     await request(app).get('/api/diretor').send({
-      nome: 'diretor123'
+      servidor: 'servidor'
     })
     const resp2 = await request(app).delete('/api/diretor').send({
       id: 'idInexistente'

@@ -1,11 +1,11 @@
-import { DeletediretorController } from '@/presentation/controllers'
-import { makeDeletediretorValidation } from '@/main/factories/controllers'
-import { makeDbDeletediretor } from '@/main/factories/usecases'
+import { DeleteDiretorController } from '@/presentation/controllers'
+import { makeDeleteDiretorValidation } from '@/main/factories/controllers'
+import { makeDbDeleteDiretor } from '@/main/factories/usecases'
 
-export const makeDeletediretorController = (): DeletediretorController => {
-  const deletediretorController = new DeletediretorController(
-    makeDeletediretorValidation(),
-    makeDbDeletediretor()
+export const makeDeleteDiretorController = (): DeleteDiretorController => {
+  const deleteDiretorController = new DeleteDiretorController(
+    makeDeleteDiretorValidation(),
+    makeDbDeleteDiretor()
   )
-  return deletediretorController
+  return deleteDiretorController
 }
