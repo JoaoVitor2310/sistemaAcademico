@@ -20,9 +20,11 @@ implements AddReitoriaRepository, GetReitoriaRepository {
     if (!result) return false
     const response: Reitoria.Params = {
       id: result.id,
-      telefone: result.telefone,
+      nome: result.nome,
       endereco: result.endereco,
-      nome: result.nome
+      telefone: result.telefone,
+      
+    
     }
     return response
   }
