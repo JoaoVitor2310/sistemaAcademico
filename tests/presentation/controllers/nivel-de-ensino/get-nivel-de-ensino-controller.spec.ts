@@ -1,34 +1,34 @@
-import { AddNivelDeEnsinoController } from '@/presentation/controllers'
+import { GetNivelDeEnsinoController } from '@/presentation/controllers'
 import { badRequest } from '@/presentation/helpers'
 /*
 , noContent
 */
-import { ValidationSpy, AddNivelDeEnsinoSpy } from '@/tests/presentation/mocks'
+import { ValidationSpy, GetNivelDeEnsinoSpy } from '@/tests/presentation/mocks'
 // import { throwError } from '@/tests/domain/mocks'
 import { faker } from '@faker-js/faker'
 
-const mockRequest = (): AddNivelDeEnsinoController.Request => ({
+const mockRequest = (): GetNivelDeEnsinoController.Request => ({
   nome: faker.person.fullName()
 })
 
 type SutTypes = {
-  sut: AddNivelDeEnsinoController
+  sut: GetNivelDeEnsinoController
   validationSpy: ValidationSpy
-  addNivelDeEnsinoSpy: AddNivelDeEnsinoSpy
+  getNivelDeEnsinoSpy: GetNivelDeEnsinoSpy
 }
 
 const makeSut = (): SutTypes => {
   const validationSpy = new ValidationSpy()
-  const addNivelDeEnsinoSpy = new AddNivelDeEnsinoSpy()
-  const sut = new AddNivelDeEnsinoController(validationSpy, addNivelDeEnsinoSpy)
+  const getNivelDeEnsinoSpy = new GetNivelDeEnsinoSpy()
+  const sut = new GetNivelDeEnsinoController(validationSpy, getNivelDeEnsinoSpy)
   return {
     sut,
     validationSpy,
-    addNivelDeEnsinoSpy
+    getNivelDeEnsinoSpy
   }
 }
 
-describe('Insttuto Controller', () => {
+describe('Nivel de Ensino Controller', () => {
   test('Should call Validation with correct values', async () => {
     const { sut, validationSpy } = makeSut()
     const request = mockRequest()

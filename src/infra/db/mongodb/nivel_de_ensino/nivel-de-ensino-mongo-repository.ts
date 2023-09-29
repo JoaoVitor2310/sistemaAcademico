@@ -11,23 +11,23 @@ export class NivelDeEnsinoMongoRepository implements AddNivelDeEnsinoRepository 
 
   async get (data: GetNivelDeEnsino.Params): Promise<GetNivelDeEnsino.Result> {
     const nivelDeEnsinoCollection = MongoHelper.getCollection('niveis_de_ensino')
-    const result = await nivelDeEnsinoCollection.findOne({ nome: data })
+    await nivelDeEnsinoCollection.insertOne(data)
+    const result = await nivelDeEnsinoCollection.findOne(data)
     if (!result) return false
     return {
-      id: result.id,
+      id: undefined,
       nome: result.nome
-
     }
   }
 
   async delete (data: DeleteNivelDeEnsino.Params): Promise<DeleteNivelDeEnsino.Result> {
     const nivelDeEnsinoCollection = MongoHelper.getCollection('niveis_de_ensino')
-    const result = await nivelDeEnsinoCollection.findOne({ id: data.id })
-    await nivelDeEnsinoCollection.deleteOne({ id: data.id })
-    if (!result) return false
-    return {
-      id: result.id,
-      nome: result.nome
+    await nivelDeEnsinoCollection.insertOne(data)
+
+    if (await nivelDeEnsinoCollection.findOne(data)) {
+      const result = await nivelDeEnsinoCollection.deleteOne({ id: data.id })
+      return result.acknowledged
     }
+    return false
   }
 }
