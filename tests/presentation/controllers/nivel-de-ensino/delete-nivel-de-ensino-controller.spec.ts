@@ -1,10 +1,6 @@
 import { DeleteNivelDeEnsinoController } from '@/presentation/controllers'
-import { badRequest } from '@/presentation/helpers'
-/*
-, noContent
-*/
+import { badRequest, noContent } from '@/presentation/helpers'
 import { ValidationSpy, DeleteNivelDeEnsinoSpy } from '@/tests/presentation/mocks'
-// import { throwError } from '@/tests/domain/mocks'
 import { faker } from '@faker-js/faker'
 
 const mockRequest = (): DeleteNivelDeEnsinoController.Request => ({
@@ -43,11 +39,9 @@ describe('Nivel de Ensino Controller', () => {
     expect(httpResponse).toEqual(badRequest(validationSpy.error))
   })
 
-  /*
   test('Should return 204 on success', async () => {
     const { sut } = makeSut()
     const httpResponse = await sut.handle(mockRequest())
     expect(httpResponse).toEqual(noContent())
   })
-  */
 })

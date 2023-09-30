@@ -1,6 +1,7 @@
 import { Controller, HttpResponse, Validation } from '@/presentation/interfacestypes'
 import { badRequest, serverError, noContent } from '@/presentation/helpers'
 import { AddInstituto } from '@/domain/usecases/instituto'
+import crypto from 'crypto'
 
 export class AddInstitutoController implements Controller {
   constructor (

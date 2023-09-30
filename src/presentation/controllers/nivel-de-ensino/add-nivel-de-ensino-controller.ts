@@ -1,6 +1,7 @@
 import { Controller, HttpResponse, Validation } from '@/presentation/interfacestypes'
 import { badRequest, serverError, noContent } from '@/presentation/helpers'
 import { AddNivelDeEnsino } from '@/domain/usecases/nivel_de_ensino'
+import crypto from 'crypto'
 
 export class AddNivelDeEnsinoController implements Controller {
   constructor (
